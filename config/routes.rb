@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  resources :image_tags
+  resources :users
   resources :tags
-
   resources :images
+  resource :session, only: [:new, :create, :delete]
+  get 'signin', to: 'sessions#new'
+  root 'images#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
