@@ -30,6 +30,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rb-readline'
 #bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+gem 'sprockets'
 
 group :development do
   gem 'rails_layout'
@@ -56,6 +58,12 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # rspec tests
+  gem 'rspec-rails'
+
+  # test coverage
+  gem 'simplecov'
 end
 
 ruby '2.2.0'
