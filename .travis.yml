@@ -1,0 +1,15 @@
+language: ruby
+rvm:
+- 2.2.0
+script:
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: G1cxxG1HpuxM0gKbFj0LJFQrDrVxwXYQb6CryHVdzHDP/ePTyTrVJAQR/LPleA+W4k3q94D7BdfsYvRAoEDK7cK9/4Lan14+4LNXZ2Kikbb0rUwwir7AXiwnmeEmPT0MogCj1+0n6XPAiA2XVoMpJM/lMhQMk2YS9Xv0zn2ncCs=
+  app: warm-tor-5205
+  on:
+    repo: serdion/mybooru

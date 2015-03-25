@@ -2,17 +2,21 @@
 
 <h1>Images</h1>
 
-<div class="container-fluid">
-  <div class="row-fluid">
-    <% @images.each do |image| %>
-      <div class="col-lg-2 col-sm-3 col-xs-4">
-        <%= link_to(image, {class: "thumbnail"}) do %>
-          <%= image_tag image.picture.url(:small) %>
-        <% end %>
-      </div>
-    <% end %>
+<% if @images then %>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <% @images.each do |image| %>
+        <div class="col-lg-2 col-sm-3 col-xs-4">
+          <%= link_to(image, {class: "thumbnail"}) do %>
+            <%= image_tag image.picture.url(:small) %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
+<% else %>
+  <h1>No images!</h1> 
+<% end %>
 
 <br>
 

@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Image</th>
       <th>Description</th>
       <th colspan="3"></th>
     </tr>
@@ -16,7 +15,6 @@
     <% @tags.each do |tag| %>
       <tr>
         <td><%= tag.name %></td>
-        <td><%= tag.image_id %></td>
         <td><%= tag.description %></td>
         <td><%= link_to 'Show', tag %></td>
         <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
