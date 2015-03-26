@@ -26,44 +26,36 @@ gem "paperclip", "~> 4.2"
 gem 'therubyracer', platforms: :ruby
 #password encryption
 gem 'bcrypt', '~> 3.1.7'
+gem 'httparty'
+gem 'bootstrap-sass'
 #rb-readline
 gem 'rb-readline'
 #bootstrap
-gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'sprockets'
-
-group :development do
-  gem 'rails_layout'
-end
 
 group :production do
    gem 'pg'
    gem 'rails_12factor'
 end
 
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :development, :test do
+  gem 'rspec-rails', '~> 3.1'
+  gem 'rspec-its'
   gem 'sqlite3'
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  #gem 'byebug'
+end
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'simplecov', require: false
+  gem 'webmock'
+end
+  # Use ActiveModel has_secure_password
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-
-  # rspec tests
-  gem 'rspec-rails'
-
-  # test coverage
-  gem 'simplecov'
+group :development do
+  gem 'rails_layout'
 end
 
 ruby '2.2.0'
