@@ -1,6 +1,6 @@
 class Image < ActiveRecord::Base
   has_many :tags, through: :image_tag
-  has_one :user, as: :uploader
+  belongs_to :user
   has_attached_file :picture, :styles => {
       :thumb => "60x60#",
       :small  => "300x150>",
