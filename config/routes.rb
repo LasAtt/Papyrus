@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resource :session, only: [:new, :create, :delete]
   get 'signin', to: 'sessions#new'
+  delete 'signout', to: 'sessions#destroy'
   root 'images#index'
   get 'signup', to: 'users#new'
 
