@@ -28,11 +28,9 @@ class ImageTagsController < ApplicationController
 
     respond_to do |format|
       if @image_tag.save
-        format.html { redirect_to @image_tag, notice: 'Image tag was successfully created.' }
-        format.json { render :show, status: :created, location: @image_tag }
+        format.html { redirect_to :back, notice: 'Tag was successfully added.' }
       else
-        format.html { render :new }
-        format.json { render json: @image_tag.errors, status: :unprocessable_entity }
+        format.html { redirect_to :back, notice: 'Tag could not be added.' }
       end
     end
   end

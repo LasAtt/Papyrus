@@ -1,4 +1,6 @@
 class ImageTag < ActiveRecord::Base
-  has_one :image
-  has_one :tag
+  belongs_to :image
+  belongs_to :tag
+
+  validates :image_id, :uniqueness => {:scope =>:tag_id}
 end

@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :images
+
+  def to_s
+    "#{username}"
+  end
 end

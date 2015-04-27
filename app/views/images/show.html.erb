@@ -1,8 +1,23 @@
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
-<br/>
-<%= image_tag @image.picture.url %>
-<br/>
-<p>Uploader: <%= @image.user %>
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+
+<div class="row">
+  <div class="col-lg-2 col-sm-12">
+    <%= link_to 'Edit', edit_image_path(@image) %>
+    |
+    <%= link_to 'Back', images_path %>
+    <br/>
+    Uploader: <%= link_to(@image.user, @image.user) %><br/>
+    Tags:<br/>
+    <% @image.tags.each do |tag| %>
+      <%= link_to tag, tag %><br/>
+    <% end %>
+    <br/>
+    <%= form_for @image_tag do |f| %>
+      <%= f.hidden_field :image_id, :value => @image.id %>
+      <%= f.select(:tag_id, options_from_collection_for_select(@tags, :id, :to_s), {}, { class:  'form-control'} )%>
+      <%= f.submit value:"add tag" %>
+    <% end %>
+  </div>
+  <div class="col-lg-8 col-sm-12">
+    <%= image_tag @image.picture.url(:medium) %>
+  </div>
+</div>

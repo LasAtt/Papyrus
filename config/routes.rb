@@ -3,9 +3,14 @@ Rails.application.routes.draw do
   resources :users
   resources :tags
   resources :images
+  resource :images do
+    post 'search', to: 'images#search'
+  end
   resource :session, only: [:new, :create, :delete]
   get 'signin', to: 'sessions#new'
   root 'images#index'
+  get 'signup', to: 'users#new'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

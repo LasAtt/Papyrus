@@ -10,6 +10,8 @@ class ImagesController < ApplicationController
   # GET /images/1
   # GET /images/1.json
   def show
+    @image_tag = ImageTag.new
+    @tags = Tag.all 
   end
 
   # GET /images/new
@@ -21,6 +23,12 @@ class ImagesController < ApplicationController
   def edit
   end
 
+  def search
+    tag_names = TagSearch.find_tags(params[:tags]);
+    @images = TagSearch.get_images(tag_names)
+    render :index
+  end
+
   # POST /images
   # POST /images.json
   def create
@@ -29,6 +37,7 @@ class ImagesController < ApplicationController
     if params[:image]
       respond_to do |format|
         if @image.save
+          current_user.images << @image
           format.html { redirect_to @image, notice: 'Image was successfully created.' }
           format.json { render :show, status: :created, location: @image }
         else
@@ -66,12 +75,10 @@ class ImagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_image
       @image = Image.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
       params.require(:image).permit(:picture) if params[:image]
     end

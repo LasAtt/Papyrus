@@ -1,5 +1,9 @@
 <h1>Images</h1>
 
+<%= form_tag search_images_path do %>
+  tags <%= text_field_tag :tags, params[:tags] %>
+  <%= submit_tag "Search", :class => "btn-small, btn-primary" %>
+<% end %>
 <% if @images then %>
   <div class="container-fluid">
     <div class="row-fluid">
