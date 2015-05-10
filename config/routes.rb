@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :image_tags
+  resources :image_tags, only: [:new, :create, :destroy]
   resources :users
   resources :tags
   resources :images

@@ -1,24 +1,10 @@
 class ImageTagsController < ApplicationController
   before_action :set_image_tag, only: [:show, :edit, :update, :destroy]
 
-  # GET /image_tags
-  # GET /image_tags.json
-  def index
-    @image_tags = ImageTag.all
-  end
-
-  # GET /image_tags/1
-  # GET /image_tags/1.json
-  def show
-  end
 
   # GET /image_tags/new
   def new
     @image_tag = ImageTag.new
-  end
-
-  # GET /image_tags/1/edit
-  def edit
   end
 
   # POST /image_tags
@@ -54,7 +40,7 @@ class ImageTagsController < ApplicationController
   def destroy
     @image_tag.destroy
     respond_to do |format|
-      format.html { redirect_to image_tags_url, notice: 'Image tag was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Image tag was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
