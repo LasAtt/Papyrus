@@ -1,6 +1,6 @@
-# ClixitGallery
+# Papyrus
 Ruby on Rails powered image gallery software with tagging functionality
 
-[![Build Status](https://travis-ci.org/serdion/ClixitGallery.png)](https://travis-ci.org/serdion/ClixitGallery)
+[![Build Status](https://travis-ci.org/serdion/Papyrus.png)](https://travis-ci.org/serdion/Papyrus)
 
-[Wiki](https://github.com/serdion/ClixitGaller/wiki)
+[Wiki](https://github.com/serdion/Papyrus/wiki)
